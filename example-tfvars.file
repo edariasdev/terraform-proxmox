@@ -1,0 +1,20 @@
+# Below are the minimum-expected/ common variables used for all modules (k8s, docker, and lxc)
+# Terraform expects these values to be available in 2 ways:
+# 1. via the root directory, can use any name, but must end in .tfvars; ex: terraform.tfvars
+# 2. via the CLI when running the plan and apply sub-commands. No examples will be provided since this is suppsed to be an automated deployment.
+#    - See  scripts/tfplan.sh to run automatically
+
+pm_api_url   = ""           # ProxMox API URL; ex: https://<PROXMOX_HOSTNAME_OR_IP_ADDRESS>:8006/api2/json
+host_ip      = ""           # ProxMox IP address
+nameserver   = ""           # Router or gateway IP address to use for VMs/LXC containers.
+pm_password  = ""           # Password for PVE User terraform-prov
+pm_user      = ""           # User for PVE operations
+pve_user     = ""           # User to use within VM
+pve_password = ""           # Password to use within VM
+clone_name   = ""           # Template name on ProxMox to use
+ssh_key      = ""           # Your SSH Public key ex: "ssh-rsa ....."
+num_master_nodes = 1        # Number of K8s Master nodes to deploy, default is 1
+num_worker_nodes = 2        # Number of K8s Worker nodes to deploy, default is 2
+pm_image_id  = ""           # Reserved for future use
+bucket_name  = ""           # Name of the s3 bucket to use; for terraform backend
+aws_region   = ""           # Name of the region the s3 bucket resides; for terraform backend
